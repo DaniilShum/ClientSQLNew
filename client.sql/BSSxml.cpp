@@ -13,7 +13,7 @@
 
   dataNum = 0;
 
-  // создаем сам файл xml и его начало
+  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ xml пїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
   _di_IXMLDocument XMLDocument = NewXMLDocument();
 
   XMLDocument->Active = True;
@@ -24,30 +24,30 @@
 
   rootNode = XMLDocument->ChildNodes->Nodes[WideString("root")];
 
-  // добавление двух узлов с информацией и данными
+  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
   rootNode->AddChild("data", 0);
   rootNode->AddChild("info", 0);
 
-  // заполняем дату создания файла
+  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
   TDateTime CurrentDate = Date();
   _di_IXMLNode dataNode = rootNode->ChildNodes->Nodes[WideString("info")];
   dataNode->AddChild("makeData");
   dataNode->ChildNodes->GetNode(WideString("makeData"))->SetNodeValue(CurrentDate);
 
 
-  // заполняем время создания файла
+  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
   TDateTime CurrentTime = Time();
   _di_IXMLNode timeNode = rootNode->ChildNodes->Nodes[WideString("info")];
   timeNode->AddChild("makeTime");
   timeNode->ChildNodes->GetNode(WideString("makeTime"))->SetNodeValue(CurrentTime);
 
 
-  // добавляем поле с номером завода
+  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
   _di_IXMLNode fNode = rootNode->ChildNodes->Nodes[WideString("info")];
   fNode->AddChild("factory");
   fNode->ChildNodes->GetNode(WideString("factory"))->SetNodeValue(factoryName);
 
-  // добавляем поле с количеством записей
+  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
   _di_IXMLNode numNode = rootNode->ChildNodes->Nodes[WideString("info")];
   numNode->AddChild("dataNum");
   numNode->ChildNodes->GetNode(WideString("dataNum"))->SetNodeValue(0);
@@ -84,9 +84,9 @@ void __fastcall  readRbuData(WideString xmlName, TComponent *owner) {
 
 
 
-  //Проба записи в базу SQL
+  //пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ SQL
 
-  //инициализация
+  //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
   /*TADOConnection *ADOConnection = new TADOConnection(owner);
   TADOTable *ADOTable = new TADOTable(owner);
   TDataSource *DataSource = new TDataSource(owner);
@@ -94,7 +94,7 @@ void __fastcall  readRbuData(WideString xmlName, TComponent *owner) {
 
 
 
-  //настройка
+  //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
   ADOConnection->Connected = false;
   ADOConnection->LoginPrompt = false;
   ADOConnection->ConnectionString = "Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=For_1C_Base;Data Source=DANIIL-UB\\SQLEXPRESS";
@@ -112,7 +112,7 @@ void __fastcall  readRbuData(WideString xmlName, TComponent *owner) {
   ADOQuery->SQL->Clear();
       // ADOQuery->SQL->Add("SELECT * FROM 'C:\\ArmRbu60\\DB\\Materials.DB' WHERE UnLoadDate BETWEEN '01.01.2016' AND '15.01.2016'");
   ADOQuery->SQL->Add("INSERT INTO Main (Num, Factory, Product, ProductDev, Sand, Macadam, Chemical, Cement, Water, Day, Time)");
-  ADOQuery->SQL->Add("VALUES (1, 'Demus', 'Бетон', 2.5, 5, 5, 5, 5, 5, '23.12.2013', '12:08')");
+  ADOQuery->SQL->Add("VALUES (1, 'Demus', 'пїЅпїЅпїЅпїЅпїЅ', 2.5, 5, 5, 5, 5, 5, '23.12.2013', '12:08')");
   ADOQuery->ExecSQL();
 
  // for(int i = 0; i < lenght; i++)
@@ -246,7 +246,7 @@ void __fastcall  setValueRbu(RbuDataType data)
   dict->ChildNodes->GetNode(WideString("timeR"))->SetNodeValue(data.time);
 
 
-  // добавляем поле с количеством записей
+  // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
   _di_IXMLNode numNode = rootNode->ChildNodes->Nodes[WideString("info")];
   numNode->ChildNodes->GetNode(WideString("dataNum"))->SetNodeValue(dataNum);
 
